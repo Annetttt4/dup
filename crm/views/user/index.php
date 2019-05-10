@@ -24,24 +24,24 @@ $this->title = 'Crm';
         <div class="container">
         <div class="text-right"
             <a href="#" class="btn btn-primary">
-        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-primary']) ?>
+       
         <?= Html::a('Статистика', ['static'], ['class' => 'btn btn-primary']) ?>
         <?php
 echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             Yii::$app->user->isGuest ? (
-                ['label' => 'Войти', 'url' => ['login']]
+                ['label' => 'Login', 'url' => ['login']]
             ) : (
                 '<li>'
-                . Html::beginForm(['/abiturient/logout'], 'post')
+                . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Выйти',
+                    'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
                 . '</li>'
-             )
+            )
         ],
     ]);?>
         </a>

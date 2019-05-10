@@ -114,3 +114,10 @@ a.desc:after {
     outline: none;
 }
 
+.table.detail-view th {
+    width: 25%;
+}
+
+.table.detail-view td {
+    width: 75%;
+}

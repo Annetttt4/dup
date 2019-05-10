@@ -21,8 +21,9 @@ class Search extends Abiturient
     {
         return [
             [['id', 'klass', 'orientation', 'status'], 'integer'],
-            [['surname', 'name', 'lastname', 'phone', 'email', 'date','orientationName','statusName'], 'safe'],
+            [['surname', 'name', 'lastname', 'phone', 'email', 'orientationName','statusName'], 'safe'],
             [['GPA'], 'number'],
+            [['date'], 'date', 'format' => 'dd-mm-yyyy'],
         ];
     }
 

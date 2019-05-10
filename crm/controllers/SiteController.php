@@ -9,6 +9,10 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Abiturient;
+use app\models\Orientation;
+use yii\behaviors\TimeStampBehavior;
+use yii\db\ActiveRecord;
 
 class SiteController extends Controller
 {
@@ -35,6 +39,15 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => 'creation_time',
+                    ActiveRecord::EVENT_BEFORE_UPDATE => 'update_time',
+                ],
+                'value' => function() { return date('U'); },
+            ],
         ];
     }
 
@@ -54,6 +67,8 @@ class SiteController extends Controller
         ];
     }
 
+   
+
     /**
      * Displays homepage.
      *
@@ -61,7 +76,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Abiturient();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            header("Refresh: 0");
+
+        }
+        $array = Orientation::getAll();
+
+        
+        return $this->render('index', [
+            'model' => $model,
+            'array'=>$array,
+        ]);
     }
 
     /**
@@ -102,7 +129,7 @@ class SiteController extends Controller
      * Displays contact page.
      *
      * @return Response|string
-     */
+      */
     public function actionContact()
     {
         $model = new ContactForm();

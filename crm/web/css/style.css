@@ -25,6 +25,17 @@ img{
     height: auto;
 }
 
+.prokrutka {
+height:500px; /* высота нашего блока */
+background: #fff; /* цвет фона, белый */
+border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+overflow-x:hidden; /* прокрутка по горизонтали */
+margin-left: 9rem;
+margin-right: 9rem;
+margin-block-end: 3rem;
+padding: 3rem;
+box-shadow: 0 0 5px;
+}
 
 /*--------------------
  TYPOGRAPHY
@@ -108,7 +119,7 @@ h6 {
 
 
 .lg-title{
-    font-size: 52px;
+    font-size: 30px;
     font-weight: 200;
     letter-spacing: 1px;
     line-height: 60px;
@@ -116,7 +127,7 @@ h6 {
 }
 
 .display-5{
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 300;
     line-height: 1.2;
 }
@@ -175,6 +186,7 @@ img {
     font-size: .6875rem;
     font-weight: 700;
     letter-spacing: 1px;
+     
 }
 
 .btn-white{
@@ -242,10 +254,10 @@ img {
 
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
+    color: #111;
 }
 .navbar-light .navbar-nav .nav-link ,.navbar-light .navbar-nav .nav-link:hover,.navbar-light .navbar-nav .nav-link:focus{
-    color: #111;
+    color: #dbd7d2;
 }
 
 
@@ -258,7 +270,7 @@ img {
 }
 
 .fixed-top {
-    position: fixed;
+    position: absolute;
     z-index: 1030;
     right: 0;
     left: 0;
@@ -276,7 +288,7 @@ img {
     opacity: 1;
 }
 .navbar-light {
-    color: #212529;
+    color: #dbd7d2;
 }
 
 
@@ -399,7 +411,7 @@ img {
 .bg-overlay:before {
     content: "";
     opacity: .55;
-    background-color: #212529
+    background-color: #959a9e
 }
 
 
@@ -449,8 +461,10 @@ img {
  ABOUT STYLE
 -----------------------*/
 .skill-list{
+    
     padding-left: 30px;
     margin-top: 15px;
+    padding-right: 20px;
 }
 .skill-list li{
     position: relative;
@@ -468,13 +482,13 @@ img {
 
 
 .about-content{
-    padding-left: 30px;
+    padding-left: 20px;
 }
 .about-content-2 {
-    padding-right: 40px;
+    padding-right: 20px;
 }
 .about-content-2  p,.about-content p{
-    margin: 20px 0px 30px;
+    margin: 20px 0px 20px;
 }
 
 
@@ -644,13 +658,20 @@ img {
     margin-top: 50px;
 }
 .client-img img{
-    width: 100px;
-    height: 100px;
+    margin:4rem;
+    width: 200px;
+    height: 200px;
+    float:left;
     border-radius: 100%;
-    border: 5px solid#ddd;
+    border: none;
+    text-align: right;
+}
+.logo-img img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
     text-align: center;
 }
-
 .client-text{
     margin-top: 20px;
 }
@@ -708,12 +729,12 @@ img {
     padding-top: 70px;
 }
 .footer-widget{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 
 .footer-widget a{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .footer-widget p{
@@ -760,6 +781,55 @@ img {
     font-weight: 700;
     margin: 30px 0px 20px;
     font-size: 22px;
+}
+
+
+
+
+.skill-list1{
+    
+    padding-left: 30px;
+    margin-top: 15px;
+    padding-right: 20px;
+}
+.skill-list1 li{
+    position: relative;
+    color: #222;
+    padding: 0px 0px 7px 30px;
+}
+.skill-list1 li:before{
+    position: absolute;
+
+    font-family: "Font Awesome 5 Free";
+    left: 0px;
+    top: 0px;
+    color: #007bff;}
+
+.reverse {
+        text-align: right;
+        right: 0px;
+}
+
+.tab{
+    position: relative;
+}
+.rectangel{
+    border: 1px solid #333333;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px #C1C1C1;
+margin:15px;
+padding: 10px;
+}
+.orientation{
+    padding-left: 5%;
+    padding-right: 10%;
+    padding-block-end: 2%;
+}
+.orientationName{
+    font-family: "Font Awesome 5 Free";
+    left: 0px;
+    top: 0px;
+    font: 12pt/14pt sans-serif;
 }
 
 

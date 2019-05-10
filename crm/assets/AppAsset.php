@@ -29,8 +29,6 @@ class AppAsset extends AssetBundle
     ];
   
     public $js = [
-        'ajax-contact.js',
-        'jquery.easing.min.js',
         'script.js',
         'theme.js',
      // 'js/script.js'

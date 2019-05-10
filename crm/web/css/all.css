@@ -257,7 +257,7 @@ readers do not read off random characters that represent icons */
   content: "\f36d"; }
 
 .fa-anchor:before {
-  content: "\f13d"; }
+  content: url("/web/img/wifi.png"); }
 
 .fa-android:before {
   content: "\f17b"; }
@@ -842,7 +842,7 @@ readers do not read off random characters that represent icons */
   content: "\f46d"; }
 
 .fa-clock:before {
-  content: "\f017"; }
+  content: url("/web/img/mani.png"); }
 
 .fa-clone:before {
   content: "\f24d"; }
@@ -1067,7 +1067,7 @@ readers do not read off random characters that represent icons */
   content: "\f470"; }
 
 .fa-dice:before {
-  content: "\f522"; }
+  content: url("/web/img/home.png") }
 
 .fa-dice-five:before {
   content: "\f523"; }
@@ -1532,7 +1532,7 @@ readers do not read off random characters that represent icons */
   content: "\f0e3"; }
 
 .fa-gem:before {
-  content: "\f3a5"; }
+  content: url("/web/img/search.png"); }
 
 .fa-genderless:before {
   content: "\f22d"; }

@@ -42,7 +42,7 @@ class Abiturient extends \yii\db\ActiveRecord
             [['surname', 'name', 'lastname', 'phone', 'email', 'klass', 'orientation', 'GPA', 'status', 'date'], 'required'],
             [['klass', 'orientation', 'status'], 'integer'],
             [['GPA'], 'number'],
-            [['date'], 'safe'],
+            [['date'], 'date','format' => 'd-M-yyyy'],
             [['surname', 'name', 'lastname', 'email'], 'string', 'max' => 50],
             [['phone'], 'string', 'max' => 25],
             [['orientation'], 'exist', 'skipOnError' => true, 'targetClass' => Orientation::className(), 'targetAttribute' => ['orientation' => 'id']],
@@ -57,16 +57,16 @@ class Abiturient extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'surname' => 'Surname',
-            'name' => 'Name',
-            'lastname' => 'Lastname',
-            'phone' => 'Phone',
-            'email' => 'Email',
-            'klass' => 'Klass',
-            'orientation' => 'Orientation',
-            'GPA' => 'Gpa',
-            'status' => 'Status',
-            'date' => 'Date',
+            'surname' => 'Фамилия',
+            'name' => 'Имя',
+            'lastname' => 'Отчество',
+            'phone' => 'Телефон',
+            'email' => 'E-mail',
+            'klass' => 'Класс',
+            'orientation' => 'Направление',
+            'GPA' => 'Средний балл аттестата',
+            'status' => 'Стaтус',
+            'date' => 'Дата',
         ];
     }
 

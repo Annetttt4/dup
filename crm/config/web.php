@@ -14,6 +14,13 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'formatter' => [
+            'defaultTimeZone' => 'UTC',
+        ],
+        
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '3JVZniZ-ud_QuxmJcsdFnVBwjmnLtpWZ',
@@ -47,12 +54,13 @@ $config = [
         ],
         'db' => $db,
     
+        // 'db' => $db,
         // 'urlManager' => [
         //     'enablePrettyUrl' => true,
         //     'showScriptName' => false,
         //     'rules' => [
-        //         '' => 'my/index',
-        //         '<action>'=>'my/<action>',
+        //         ''=>'site/index',
+        //         '<action>'=>'site/<action>',
         //     ],
         // ],
     ],

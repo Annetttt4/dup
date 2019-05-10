@@ -44,6 +44,7 @@ class Orientation extends \yii\db\ActiveRecord
         ];
     }
 
+   
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -51,4 +52,9 @@ class Orientation extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Abiturient::className(), ['orientation' => 'id']);
     }
+    public static function getAll()
+      {
+             $data = self::find()->all();
+             return $data;
+      }
 }
