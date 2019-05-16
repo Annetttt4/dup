@@ -14,6 +14,7 @@ class Search extends Abiturient
 {
     public $orientationName;
     public $statusName;
+    public $year;
     /**
      * {@inheritdoc}
      */
@@ -24,6 +25,7 @@ class Search extends Abiturient
             [['surname', 'name', 'lastname', 'phone', 'email', 'orientationName','statusName'], 'safe'],
             [['GPA'], 'number'],
             [['date'], 'date', 'format' => 'dd-mm-yyyy'],
+            [['year'],'date'],
         ];
     }
 
@@ -48,6 +50,7 @@ class Search extends Abiturient
         $query = Abiturient::find();
         $query->joinWith(['orientation0']);
         $query->joinWith(['status0']);
+    
    
         // add conditions that should always apply here
         
@@ -87,8 +90,8 @@ class Search extends Abiturient
             ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', Orientation::tableName().'.name', $this->orientationName])
-            ->andFilterWhere(['like', Status::tableName().'.name', $this->statusName]);
-
+            ->andFilterWhere(['like', Status::tableName().'.name', $this->statusName])
+            ->andFilterWhere(['like','date',$this->year]);
         return $dataProvider;
     }
 }

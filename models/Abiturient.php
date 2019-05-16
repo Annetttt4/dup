@@ -25,6 +25,7 @@ use Yii;
  */
 class Abiturient extends \yii\db\ActiveRecord
 {
+    public $year;
     /**
      * {@inheritdoc}
      */

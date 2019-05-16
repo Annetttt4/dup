@@ -7,37 +7,37 @@ use yii\db\Migration;
  */
 class m190417_113643_orientation extends Migration
 {
+    /*
     /**
      * {@inheritdoc}
-     */
+     
     public function safeUp()
     {
-        $this->createTable('{{%orientation}}', [ 
-            'id' => $this ->primaryKey(), 
-            'name' => $this ->string(), 
-            ]);
+       
     }
 
     /**
      * {@inheritdoc}
-     */
+     
     public function safeDown()
     {
-        $this->dropTable('{{%orientation}}');
+        
     }
 
-    /*
+    */
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
+         $this->createTable('{{%orientation}}', [ 
+            'id' => $this ->primaryKey(), 
+            'name' => $this ->string(), 
+            ]);
 
     }
 
     public function down()
     {
-        echo "m190417_113643_orientation cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%orientation}}');
     }
-    */
+    
 }

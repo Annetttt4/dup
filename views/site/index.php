@@ -49,7 +49,7 @@ echo Nav::widget([
         </div>
 
     </div>
-<?= Html::dropDownList('orientation', 'null',ArrayHelper::map(Orientation::find()->all(),'id','name'));?>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -65,7 +65,7 @@ echo Nav::widget([
             //['attribute' => 'orientationName','label' => 'Orientation', 'value'=>'orientation0.name'],
             ['attribute' => 'status','label'=>'Status', 'value'=>'status0.name', 'filter' => ArrayHelper::map(Status::find()->all(), 'id', 'name'),
               'filterInputOptions' => ['class' => 'form-control form-control-sm']],
-              ['attribute'=>'date','label'=>'Дата','filter'=>Abiturient::getYear(date),],
+              ['attribute'=>'date','label'=>'Дата',],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
