@@ -14,7 +14,8 @@ use yii\db\ActiveRecord;
 use yii\filters\AccessControl;
 use app\models\LoginForm;
 use app\models\ContactForm;
-
+use app\models\Statistica;
+use yii\data\SqlDataProvider;
 /**
  * AbiturientController implements the CRUD actions for Abiturient model.
  */
@@ -31,7 +32,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','index','login'],
+                        'actions' => ['view','index','login','static'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -47,7 +48,7 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
-           
+        
         ];
     }
 
@@ -60,6 +61,8 @@ class SiteController extends Controller
         $searchModel = new Search();
         
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+		
+		
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -95,13 +98,12 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
            
             if($model->validate()){
-                
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
             }
+            
         }
-        
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -126,8 +128,24 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
         public function actionStatic(){
-            return $this->render('static');
+            $year=isset($_GET['ID']);
+            $model = new Abiturient();
+            
+            $static=new Statistica();
+            if($year==''){
+                $array=$static->CoutAll();
+            }
+            else{
+                $array=$static->Year($year);
+            }
+           
+            return $this->render('static', [
+                'model' => $model,
+                'all'=>$array,
+                'count'=> $count_all,
+            ]);
         }
     /**
      * Deletes an existing Abiturient model.
@@ -181,6 +199,7 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
+    
     }
-
+  
 }

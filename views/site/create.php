@@ -4,8 +4,7 @@
 use yii\helpers\Html;
 
 $this->title = 'Создать';
-//$this->params['breadcrumbs'][] = ['label' => 'Abiturient', 'url' => ['index']];
-//$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="text-right"
 <a href="#" class="btn btn-primary">

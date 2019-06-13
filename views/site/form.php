@@ -33,7 +33,9 @@ use kartik\datetime\DateTimePicker;
     ['prompt'=>'Выберети статус']
 );?>
 
-<?= $form->field($model, 'date')->textInput(['type' => 'date']); ?>
+<?= $form->field($model, 'date')->textInput(['type' => 'date']); 
+?>
+<?=$form->field($model,'year')->textInput(['type' => 'year']);?>
     
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Сохранить'), ['class' => 'btn btn-primary']) ?>

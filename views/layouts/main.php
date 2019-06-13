@@ -16,7 +16,8 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <?= Html::csrfMetaTags() ?>
     <title><?=Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -24,9 +25,9 @@ AppAsset::register($this);
 
 </head>
 
-<body id="page-top">
-<?php $this->beginBody() ?>
 
+<?php $this->beginBody() ?>
+<body id="page-top">
 
     <!-- NAVBAR
     ================================================= -->
@@ -56,26 +57,7 @@ AppAsset::register($this);
         </div>
         <!-- / .container -->
     </nav>
-    
-  
-  
-  
-
     <?= $content ?>
-    <script type="text/javascript">
-    ymaps.ready(init);
-    var myMap;
-
-    function init(){     
-        myMap = new ymaps.Map ("map", {
-            center: [47.214921, 39.704898],
-            zoom: 50
-        });
-      myPlacemark = new ymaps.Placemark([55.76, 37.64], { content: 'Ростов-на-Дону', balloonContent: 'РКСИ' });
-      myMap.geoObjects.add(myPlacemark);
-  }
-</script>
-
 
 </div>
 </section>

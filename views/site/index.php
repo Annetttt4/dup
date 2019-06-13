@@ -7,29 +7,31 @@ use app\models\Status;
 use kartik\date\DatePicker;
 use yii\bootstrap\Nav;
 use app\models\Orientation;
+use yii\widgets\LinkPager;
 use app\models\Abiturient;
 $this->title = 'Crm';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 
   <section class="section section-top section-full">
+      
     <div class="container">
-   
    
         <div class="col-md-10 col-lg-7 ">
                 <h1 class="text-black  mb-4 display-4 font-weight-bold">
                 <?= Html::encode($this->title) ?>
-                </h1>               
+                </h1> 
+                            
         </div>
 
         <div class="container">
         <div class="text-right"
-            <a href="#" class="btn btn-primary">
-        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Статистика', ['static'], ['class' => 'btn btn-primary']) ?>
+        <div class="wrap"> 
+        <?= Html::a('Создать', ['create'], ['class' => 'btn btn-default btn-lg active']) ?>  
+        <?= Html::a('Статистика', ['static'], ['class' => 'btn btn-default btn-lg active']) ?>   
         <?php
 echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right   '],
         'items' => [
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['login']]
@@ -38,7 +40,7 @@ echo Nav::widget([
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Выйти',
-                    ['class' => 'btn btn-link logout']
+                    ['class' => 'btn btn-default btn-lg active']
                 )
                 . Html::endForm()
                 . '</li>'
@@ -50,22 +52,25 @@ echo Nav::widget([
 
     </div>
 
+    <div class="table-responsive">
+	
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'options' => [
-            'class' => 'striped',
+            'class' => 'striped table',
         ],
         'columns' => [
-            'id',
+           ['attribute'=> 'id','contentOptions' => ['style' => 'width:10px;  min-width:6px;'],],
             ['attribute'=>'surname', 'label'=>'Фамилия', 'value'=>'surname'],
             ['attribute'=>'name', 'label'=>'Имя', 'value'=>'name'],
             ['attribute'=>'email', 'label'=>'E-mail', 'value'=>'email'],
             //['attribute' => 'orientationName','label' => 'Orientation', 'value'=>'orientation0.name'],
             ['attribute' => 'status','label'=>'Status', 'value'=>'status0.name', 'filter' => ArrayHelper::map(Status::find()->all(), 'id', 'name'),
               'filterInputOptions' => ['class' => 'form-control form-control-sm']],
-              ['attribute'=>'date','label'=>'Дата',],
+              ['attribute'=>'date','label'=>'Дата','format'=>['date', 'php:d-m-Y']],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

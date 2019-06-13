@@ -41,7 +41,7 @@ class Abiturient extends \yii\db\ActiveRecord
     {
         return [
             [['email'], 'unique'],
-            [['surname', 'name', 'lastname', 'phone', 'klass', 'orientation', 'GPA', 'status', 'date'], 'required'],
+            [['surname', 'name', 'lastname', 'phone', 'klass', 'orientation', 'GPA', 'status', 'date','year'], 'required'],
             [['klass', 'orientation', 'status'], 'integer'],
             [['GPA'], 'number'],
           //  [['date'], 'date','format' => 'd-M-yyyy'],
@@ -69,6 +69,8 @@ class Abiturient extends \yii\db\ActiveRecord
             'GPA' => 'Средний балл аттестата',
             'status' => 'Стaтус',
             'date' => 'Дата',
+            'year'=>'Year',
+           
         ];
     }
 
@@ -95,12 +97,5 @@ class Abiturient extends \yii\db\ActiveRecord
     {
         return $this->hasMany(SubDoc::className(), ['id_give' => 'id']);
     }
-    public function getYear($date){
-        $rows = Abiturient::find()
-        ->select(['YEAR(date) as year'])
-    ->from('abiturient')
-    ->groupBy('year')
-    ->all();
-    return $rows;
-    }
+    
 }

@@ -42,7 +42,7 @@ class m190516_160921_abiturient extends Migration
             'orientation' => $this->integer(),
             'status' => $this->integer(),
             'date' =>$this ->date(),
-            'year' =>$this->string()
+            'year' =>$this->year(),
             ]); 
             $this->createIndex(
                 'orientation',
