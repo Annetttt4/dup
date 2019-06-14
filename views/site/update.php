@@ -4,9 +4,6 @@
 use yii\helpers\Html;
 
 $this->title = 'Редактировать : ' . $model->surname;
-//$this->params['breadcrumbs'][] = ['label' => 'Abiturient', 'url' => ['index']];
-//$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-//$this->params['breadcrumbs'][] = 'Update';
 ?>
 
 <div class="text-right"

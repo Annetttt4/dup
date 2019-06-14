@@ -8,8 +8,7 @@ use app\models\Abiturient;
 use app\models\Orientation;
 
 $this->title = $model->surname;
-//$this->params['breadcrumbs'][] = ['label' => 'Crm', 'url' => ['index']];
-//$this->params['breadcrumbs'][] = $this->title;
+
 \yii\web\YiiAsset::register($this);
 ?>
  <div class="text-right"

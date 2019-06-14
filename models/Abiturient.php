@@ -26,17 +26,13 @@ use Yii;
 class Abiturient extends \yii\db\ActiveRecord
 {
     public $year;
-    /**
-     * {@inheritdoc}
-     */
+   
     public static function tableName()
     {
         return 'abiturient';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+  
     public function rules()
     {
         return [
@@ -44,7 +40,6 @@ class Abiturient extends \yii\db\ActiveRecord
             [['surname', 'name', 'lastname', 'phone', 'klass', 'orientation', 'GPA', 'status', 'date','year'], 'required'],
             [['klass', 'orientation', 'status'], 'integer'],
             [['GPA'], 'number'],
-          //  [['date'], 'date','format' => 'd-M-yyyy'],
             [['surname', 'name', 'lastname', 'email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 255],
             [['orientation'], 'exist', 'skipOnError' => true, 'targetClass' => Orientation::className(), 'targetAttribute' => ['orientation' => 'id']],
@@ -52,9 +47,7 @@ class Abiturient extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function attributeLabels()
     {
         return [
@@ -74,25 +67,17 @@ class Abiturient extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
+
     public function getOrientation0()
     {
         return $this->hasOne(Orientation::className(), ['id' => 'orientation']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getStatus0()
     {
         return $this->hasOne(Status::className(), ['id' => 'status']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getSubDocs()
     {
         return $this->hasMany(SubDoc::className(), ['id_give' => 'id']);

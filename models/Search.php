@@ -8,17 +8,12 @@ use yii\data\ActiveDataProvider;
 use app\models\Abiturient;
 use yii\data\SqlDataProvider;
 
-/**
- * Search represents the model behind the search form of `app\models\Abiturient`.
- */
 class Search extends Abiturient
 {
     public $orientationName;
     public $statusName;
     public $year;
-    /**
-     * {@inheritdoc}
-     */
+
     public function rules()
     {
         return [
@@ -39,42 +34,26 @@ class Search extends Abiturient
         return Model::scenarios();
     }
 
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
+
     public function search($params)
     {
         $query = Abiturient::find();
         $query->joinWith(['orientation0']);
         $query->joinWith(['status0']);
-    
-   
-        // add conditions that should always apply here
-        
+            
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'forcePageParam' => false,
+                'pageSizeParam' => false,
+               'pageSize' => 10
+           ]
            
         ]);
 
         $this->load($params);
 
-        // $totalCount = Yii::$app->db->createCommand('SELECT COUNT(*) FROM Abiturient', [])->queryScalar();
-        // // выполняем запрос
-        // $sql = 'SELECT * FROM Abiturient';
         
-        // $dataProvider = new SqlDataProvider([
-        //     'sql' => $sql,
-        //     'params' => [],
-        //     'totalCount' => (int)$totalCount,
-        //     'pagination' => [
-        //         // количество пунктов на странице
-        //         'pageSize' => 10,
-        //     ]
-        //     ]);
         if (!$this->validate()) {
             return $dataProvider;
         }

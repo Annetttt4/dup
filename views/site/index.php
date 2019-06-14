@@ -9,8 +9,8 @@ use yii\bootstrap\Nav;
 use app\models\Orientation;
 use yii\widgets\LinkPager;
 use app\models\Abiturient;
+
 $this->title = 'Crm';
-//$this->params['breadcrumbs'][] = $this->title;
 ?>
 
   <section class="section section-top section-full">
@@ -67,11 +67,11 @@ echo Nav::widget([
             ['attribute'=>'surname', 'label'=>'Фамилия', 'value'=>'surname'],
             ['attribute'=>'name', 'label'=>'Имя', 'value'=>'name'],
             ['attribute'=>'email', 'label'=>'E-mail', 'value'=>'email'],
-            //['attribute' => 'orientationName','label' => 'Orientation', 'value'=>'orientation0.name'],
             ['attribute' => 'status','label'=>'Status', 'value'=>'status0.name', 'filter' => ArrayHelper::map(Status::find()->all(), 'id', 'name'),
               'filterInputOptions' => ['class' => 'form-control form-control-sm']],
               ['attribute'=>'date','label'=>'Дата','format'=>['date', 'php:d-m-Y']],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    
     </div>

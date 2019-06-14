@@ -4,14 +4,6 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "status".
- *
- * @property int $id
- * @property string $name
- *
- * @property Abiturient[] $abiturients
- */
 class Status extends \yii\db\ActiveRecord
 {
     /**
@@ -22,9 +14,7 @@ class Status extends \yii\db\ActiveRecord
         return 'status';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function rules()
     {
         return [
@@ -33,9 +23,6 @@ class Status extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -44,9 +31,6 @@ class Status extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getAbiturients()
     {
         return $this->hasMany(Abiturient::className(), ['status' => 'id']);

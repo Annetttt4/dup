@@ -17,18 +17,7 @@ $this->title = 'Статистика';
             <a href="#" class="btn btn-primary">
                     <?= Html::a('CRM', ['index'], ['class' => 'btn btn-success']) ?>
             </a>
-            <div class="col-md-8 col-lg-8 ">
-
-        <?php //$items = ArrayHelper::map(Abiturient::find()->all(), 'id', 'year');
-
-//$form = ActiveForm::begin();
-//echo $form->field($model, 'year')->dropDownList($items, [
-  //  'prompt' => 'Год',
-    //'onchange'=>'$.post("/enrollee/area/lists?ID='.'"+$(this).val(),function (data){
-      //  $("select#id").html(data);
-        //});'
-//]);
-//ActiveForm::end();?>                 
+            <div class="col-md-8 col-lg-8 ">                
 </div>
 </div>
 <div class="container">

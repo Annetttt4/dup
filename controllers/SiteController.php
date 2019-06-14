@@ -16,15 +16,9 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Statistica;
 use yii\data\SqlDataProvider;
-/**
- * AbiturientController implements the CRUD actions for Abiturient model.
- */
+
 class SiteController extends Controller
 {
-   // public $layout='basic';
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [
@@ -52,30 +46,18 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Lists all Abiturient models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new Search();
         
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 		
-		
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
-    /**
-     * Displays a single Abiturient model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         $searchModel = new Search();
@@ -86,11 +68,6 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Abiturient model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Abiturient();
@@ -109,13 +86,6 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Abiturient model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -130,16 +100,12 @@ class SiteController extends Controller
     }
 
         public function actionStatic(){
-            $year=isset($_GET['ID']);
+ 
             $model = new Abiturient();
             
             $static=new Statistica();
-            if($year==''){
+ 
                 $array=$static->CoutAll();
-            }
-            else{
-                $array=$static->Year($year);
-            }
            
             return $this->render('static', [
                 'model' => $model,
@@ -147,13 +113,7 @@ class SiteController extends Controller
                 'count'=> $count_all,
             ]);
         }
-    /**
-     * Deletes an existing Abiturient model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -161,13 +121,6 @@ class SiteController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Abiturient model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Abiturient the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Abiturient::findOne($id)) !== null) {
